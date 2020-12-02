@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-1
+  labels:
+    app: django-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-1-container
+  template:
+    metadata:
+      labels:
+        app: django-1-container
+    spec:
+      containers:
+        - name: django-1
+          image: okayjosh/accounting:latest
+          command: ['/bin/bash', 'run.sh'] # runs migrations and starts the server
+          ports:
+            - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-1-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-1-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: postgres-1-service
