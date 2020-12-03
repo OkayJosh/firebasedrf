@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'accounting.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-CERTIFICATE = '/home/etentlabs/Documents/remotejob/accountingfast/accounting/confidential.json'
+CERTIFICATE = '/home/etentlabs/Documents/remotejob/firebasedrf/remote4test.json'
 BUCKET_NAME = 'remote4test-ed516.appspot.com'
 
 # DATABASES = {
