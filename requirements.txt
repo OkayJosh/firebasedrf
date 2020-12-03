@@ -1,3 +1,4 @@
+firebase-admin==2.13.0
 asgiref==3.3.1
 CacheControl==0.12.6
 cachetools==4.1.1
